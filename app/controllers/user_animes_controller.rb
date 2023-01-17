@@ -1,0 +1,2 @@
+class UserAnimesController < ApplicationController
+end
