@@ -6,6 +6,7 @@ class UserAnimesController < ApplicationController
         render json: user_animes
     end
 
+    #POST an anime to current users user_anime
     def create
         user_anime = @current_user.user_animes.create!(user_anime_params)
         render json: user_anime, status: :created

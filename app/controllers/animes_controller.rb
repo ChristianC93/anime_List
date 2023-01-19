@@ -12,6 +12,13 @@ class AnimesController < ApplicationController
         render json: anime, status: :created
     end
 
+    #DELETE anime (delete)
+    def destroy
+        anime = Anime.find_by(id: params[:id])
+        anime.destroy
+        render json: {}, status: :no_content
+    end
+
     private
 
     def anime_params
