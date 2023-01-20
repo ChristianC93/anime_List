@@ -6,6 +6,11 @@ class AnimesController < ApplicationController
         render json: Anime.all
     end
 
+    def show
+        anime = Anime.find_by(id: params[:id])
+        render json: anime, status: 200  
+    end
+
     #POST anime (create)
     def create
         anime = Anime.create!(anime_params)

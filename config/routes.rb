@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   
-  resources :user_animes, only: [:index, :create]
+  resources :user_animes, only: [:index, :create, :update]
   resources :animes 
   # only: [:index, :create]
   resources :users, only: [:create]
@@ -12,5 +12,5 @@ Rails.application.routes.draw do
   get "/me", to: "users#show"
   post "/login", to: "sessions#create"
   delete "/logout", to: "sessions#destroy"
-  
+
 end
