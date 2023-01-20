@@ -14,14 +14,14 @@ class UserAnimesController < ApplicationController
 
     #PATCH current user's user_anime/id (update) 
     def update
-        user_anime = @current_user.user_animes.find_by(id: params[:id])
+        user_anime = @current_user.user_animes.find_by!(id: params[:id])
         user_anime.update!(user_anime_params)
         render json: user_anime, status: :ok
     end
 
     #DELETE a user_anime from current user (delete)
     def destroy
-        user_anime = @current_user.user_animes.find_by(id: params[:id])
+        user_anime = @current_user.user_animes.find_by!(id: params[:id])
         user_anime.destroy
         render json: {}, status: :no_content
     end

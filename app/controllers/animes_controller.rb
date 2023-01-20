@@ -8,7 +8,7 @@ class AnimesController < ApplicationController
 
     #GET one anime anime/:id
     def show
-        anime = Anime.find_by(id: params[:id])
+        anime = Anime.find_by!(id: params[:id])
         render json: anime, status: 200  
     end
 
@@ -20,7 +20,7 @@ class AnimesController < ApplicationController
 
     #DELETE anime (delete)
     def destroy
-        anime = Anime.find_by(id: params[:id])
+        anime = Anime.find_by!(id: params[:id])
         anime.destroy
         render json: {}, status: :no_content
     end
