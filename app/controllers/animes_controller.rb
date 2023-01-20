@@ -6,6 +6,7 @@ class AnimesController < ApplicationController
         render json: Anime.all
     end
 
+    #GET one anime anime/:id
     def show
         anime = Anime.find_by(id: params[:id])
         render json: anime, status: 200  

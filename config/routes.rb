@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   
-  resources :user_animes, only: [:index, :create, :update]
+  resources :user_animes
   resources :animes 
   # only: [:index, :create]
   resources :users, only: [:create]
