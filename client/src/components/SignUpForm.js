@@ -2,9 +2,10 @@ import React, { useState } from 'react';
 
 function SignUpForm() {
   const [formData, setFormData] = useState({
-    email: "",
+    username: "",
     password: "",
-    confirmPassword: "",
+    password_confirmation: "",
+    image_url: ""
   });
 
   const handleChange = (e) => {
@@ -16,14 +17,28 @@ function SignUpForm() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    
-  }
+    fetch("/signup", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(formData)
+    })
+    .then((resp) => {
+        if (resp.ok) {
+            resp.json().then((user) => console.log(user))
+        }
+        else {
+            resp.json().then((error) => console.log(error))
+        }
+    })}
+
 
   return (
     <form onSubmit={handleSubmit}>
       <label>
-        Email:
-        <input type="email" name="email" onChange={handleChange} value={formData.email} />
+        Username:
+        <input type="username" name="username" onChange={handleChange} value={formData.username} />
       </label>
       <br />
       <label>
@@ -33,7 +48,12 @@ function SignUpForm() {
       <br />
       <label>
         Confirm Password:
-        <input type="password" name="confirmPassword" onChange={handleChange} value={formData.confirmPassword} />
+        <input type="password" name="password_confirmation" onChange={handleChange} value={formData.passwordConfirmation} />
+      </label>
+      <br />
+      <label>
+        Image Url:
+        <input type="text" name="image_url" onChange={handleChange} value={formData.image_url} />
       </label>
       <br />
       <input type="submit" value="Sign Up" />
