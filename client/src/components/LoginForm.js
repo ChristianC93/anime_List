@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import SignUpForm from './SignUpForm';
 
-function LoginForm() {
+function LoginForm({ userLogin }) {
     const [showSignup, setShowSignup] = useState(false);
+    const [errors, setErrors] = useState([])
     const [formData, setFormData] = useState({
         username: "",
         password: ""
@@ -17,7 +18,20 @@ function LoginForm() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(formData);
+        fetch("/login", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(formData)
+        })
+        .then((resp) => {
+            if (resp.ok) {
+                resp.json().then((user) => userLogin(user))
+            } else {
+                resp.json().then((json) => setErrors(json.errors))
+            }
+        })
     };
 
     const handleClick = (e) => {

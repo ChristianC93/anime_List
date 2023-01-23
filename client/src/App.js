@@ -1,15 +1,16 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import './App.css';
 import LoginForm from './components/LoginForm';
 
 
 function App() {
+  const [user, setUser] = useState(null);
 
   useEffect(() => {
     fetch("/me")
     .then((resp) => {
       if (resp.ok) {
-        resp.json().then((user) => console.log(user))
+        resp.json().then((user) => setUser(user))
       }
     })
   },[])
@@ -17,7 +18,7 @@ function App() {
   return (
     <div className="App">
       <h1>AniList!</h1>
-      <LoginForm />
+      <LoginForm userLogin={setUser}/>
     </div>
   );
 }
