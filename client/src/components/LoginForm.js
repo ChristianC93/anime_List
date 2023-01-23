@@ -21,13 +21,13 @@ function LoginForm() {
     };
 
     const handleClick = (e) => {
-        e.preventDefault()
-        setShowSignup(true)
+       e.preventDefault()
+        setShowSignup(!showSignup)
     };
 
     return (
         <div>
-            {showSignup ? <SignUpForm /> :
+            {showSignup ? <> <SignUpForm /> <a href="/" onClick={handleClick}>Already have an account?</a> </> :
                 <form onSubmit={handleSubmit}>
                     <label>
                         Username:
