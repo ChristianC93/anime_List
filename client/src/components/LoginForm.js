@@ -29,7 +29,7 @@ function LoginForm({ userLogin }) {
             if (resp.ok) {
                 resp.json().then((user) => userLogin(user))
             } else {
-                resp.json().then((json) => setErrors(json.errors))
+                resp.json().then((error) => setErrors(error.errors))
             }
         })
     };
@@ -63,6 +63,7 @@ function LoginForm({ userLogin }) {
                     <a href="/signup" onClick={handleClick}>Don't have an account?</a>
                 </form>
             }
+            {errors.length > 0 ? errors.map((err) => <p>{err}</p>) : ""}
         </div>
     );
 };
