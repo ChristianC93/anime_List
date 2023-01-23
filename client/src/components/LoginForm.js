@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const LoginForm = () => {
+function LoginForm() {
     const [formData, setFormData] = useState({
         username: "",
         password: ""
@@ -37,6 +37,7 @@ const LoginForm = () => {
             </label>
             <br />
             <input type="submit" value="Log In" />
+            <a href="/signup">Don't have an account?</a>
         </form>
     );
 };

@@ -15,6 +15,7 @@ function SignUpForm() {
     }); 
   }
 
+  //POST request signup frontend create user
   const handleSubmit = (e) => {
     e.preventDefault();
     fetch("/signup", {
