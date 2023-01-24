@@ -63,7 +63,7 @@ function LoginForm({ userLogin }) {
                     <a href="/signup" onClick={handleClick}>Don't have an account?</a>
                 </form>
             }
-            {errors.length > 0 ? errors.map((err) => <p>{err}</p>) : ""}
+            {errors.length > 0 ? errors.map((err) => <p key={err}>{err}</p>) : ""}
         </div>
     );
 };

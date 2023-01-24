@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react';
 import './App.css';
+import { Routes, Route} from 'react-router-dom';
 import LoginForm from './components/LoginForm';
+import HomePage from './components/HomePage';
 
 
 function App() {
@@ -14,11 +16,15 @@ function App() {
       }
     })
   },[])
-  
+  if (!user) {
+    return <LoginForm userLogin={setUser} />
+  }
   return (
     <div className="App">
-      <h1>AniList!</h1>
-      <LoginForm userLogin={setUser}/>
+    <h1>AniList!</h1>
+    <Routes>
+        <Route path="/" element={<HomePage user={user} />} />
+    </Routes>
     </div>
   );
 }
