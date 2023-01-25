@@ -7,9 +7,13 @@ function NavBar({ userLogin }) {
         fetch("/logout", {
             method: "DELETE"
         })
-        .then((resp) => userLogin(null))
+        .then((resp) => {
+            if (resp.ok) {
+                userLogin(null)
+            }
+        })
     };
-    
+
     return (
         <nav>
             <Link to="/">Home</Link>
