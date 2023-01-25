@@ -4,7 +4,7 @@ function HomePage({user}) {
     console.log(user)
     return (
         <div>
-            <h1>Logged in</h1>
+            <h1>Welcome Back, {user.username}</h1>
         </div>
     )
 };

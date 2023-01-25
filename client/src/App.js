@@ -3,6 +3,7 @@ import './App.css';
 import { Routes, Route} from 'react-router-dom';
 import LoginForm from './components/LoginForm';
 import HomePage from './components/HomePage';
+import NavBar from './components/NavBar';
 
 
 function App() {
@@ -21,10 +22,10 @@ function App() {
   }
   return (
     <div className="App">
-    <h1>AniList!</h1>
-    <Routes>
-        <Route path="/" element={<HomePage user={user} />} />
-    </Routes>
+      <NavBar />
+      <Routes>
+          <Route path="/" element={<HomePage user={user} />} />
+      </Routes>
     </div>
   );
 }
