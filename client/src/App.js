@@ -4,6 +4,7 @@ import { Routes, Route} from 'react-router-dom';
 import LoginForm from './components/LoginForm';
 import HomePage from './components/HomePage';
 import NavBar from './components/NavBar';
+import AnimeForm from './components/AnimeForm';
 
 
 function App() {
@@ -25,6 +26,7 @@ function App() {
       <NavBar userLogin={setUser}/>
       <Routes>
           <Route path="/" element={<HomePage user={user} />} />
+          <Route path='/animeform' element={<AnimeForm user={user} />} />
       </Routes>
     </div>
   );
