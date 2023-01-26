@@ -18,6 +18,7 @@ function NavBar({ userLogin }) {
         <nav>
             <Link to="/">Home</Link>
             <Link to="/animeform">Add an Anime </Link>
+            <Link to="/anilist">AniList</Link>
             <Link onClick={handleLogoutClick}>Logout</Link>
         </nav>
     );

@@ -1,6 +1,6 @@
 import React from "react";
 
-function HomePage({ user }) {
+function AniListPage({ user }) {
     console.log(user)
 
     const userAnimes = user.user_animes.map((ua) => {
@@ -20,4 +20,4 @@ function HomePage({ user }) {
     )
 };
 
-export default HomePage;
+export default AniListPage;
