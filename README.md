@@ -11,8 +11,8 @@ Lastly "run npm start --prefix client" in order to view the app in the browser.
 
 
 ### Overview
-A user will be able to signup for an account.
-A user will be able to log in to their account.
-A user will be able to see their anime list.
-A user will be able add an anime.
+* A user will be able to signup for an account.
+* A user will be able to log in to their account.
+* A user will be able to see their anime list.
+* A user will be able add an anime.
 
