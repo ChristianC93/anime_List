@@ -5,6 +5,7 @@ import LoginForm from './components/LoginForm';
 import NavBar from './components/NavBar';
 import AnimeForm from './components/AnimeForm';
 import AniListPage from './components/AniListPage';
+import HomePage from './components/HomePage';
 
 
 function App() {
@@ -25,6 +26,7 @@ function App() {
     <div className="App">
       <NavBar userLogin={setUser}/>
       <Routes>
+          <Route path='/' element={<HomePage />} />
           <Route path="/anilist" element={<AniListPage user={user} />} />
           <Route path='/animeform' element={<AnimeForm user={user} />} />
       </Routes>

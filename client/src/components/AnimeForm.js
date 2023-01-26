@@ -2,12 +2,12 @@ import React, { useState } from "react";
 
 
 function AnimeForm({ user }) {
-    const [userAnimes, setUserAnimes] = useState([user.user_animes])
+    const [animes, setAnimes] = useState([]);
     const [formData, setFormData] = useState({
-        user: user,
-        anime: "",
-        rating:"",
-        review:""
+        name: "",
+        episode_count:"",
+        genre:"",
+        image_url:""
     });
 
     const handleChange = (e) => {
@@ -17,46 +17,51 @@ function AnimeForm({ user }) {
         }); 
     };
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        fetch("/user_animes", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(formData)
-        })
-        .then((resp) => {
-            if (resp.ok) {
-                resp.json().then((anime) => setUserAnimes([...userAnimes, anime]))
-            } else {
-                resp.json().then((error) => console.log(error.errors))
-            }
-        })
-        .then(setFormData({
-            user: user,
-            anime: "",
-            rating: "",
-            review: ""
-        }))
-    };
+    // const handleSubmit = (e) => {
+    //     e.preventDefault();
+    //     fetch("/user_animes", {
+    //         method: "POST",
+    //         headers: {
+    //             "Content-Type": "application/json"
+    //         },
+    //         body: JSON.stringify(formData)
+    //     })
+    //     .then((resp) => {
+    //         if (resp.ok) {
+    //             resp.json().then((anime) => setUserAnimes([...userAnimes, anime]))
+    //         } else {
+    //             resp.json().then((error) => console.log(error.errors))
+    //         }
+    //     })
+    //     .then(setFormData({
+    //         user: user,
+    //         anime: "",
+    //         rating: "",
+    //         review: ""
+    //     }))
+    // };
 
     return (
         <div>
-            <form onSubmit={handleSubmit}>
+            <form >
                 <label>
                     Anime Name:
-                    <input type="anime" name="anime" onChange={handleChange} value={formData.anime} />
+                    <input type="name" name="name" onChange={handleChange} value={formData.name} />
                 </label>
                 <br />
                 <label>
-                    Rating:
-                    <input type="rating" name="rating" onChange={handleChange} value={formData.rating} />
+                    Episode Count:
+                    <input type="episode_count" name="episode_count" onChange={handleChange} value={formData.episode_count} />
                 </label>
                 <br />
                 <label>
-                    Review:
-                    <input type="review" name="review" onChange={handleChange} value={formData.review} />
+                    Genre:
+                    <input type="genre" name="genre" onChange={handleChange} value={formData.genre} />
+                </label>
+                <br />
+                <label>
+                    Image Url:
+                    <input type="image_url" name="image_url" onChange={handleChange} value={formData.image_url} />
                 </label>
                 <br />
                 <input type="submit" value="Add to List" />
