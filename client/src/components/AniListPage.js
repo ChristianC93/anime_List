@@ -10,7 +10,8 @@ function AniListPage({ user }) {
             <p>My Rating: {ua.rating}/10</p>
             <p>Review: {ua.review}</p>
         </div>
-    )})
+    )});
+
     return (
         <div>
             <h1>Welcome Back, {user.username}</h1>

@@ -26,7 +26,7 @@ function App() {
     <div className="App">
       <NavBar userLogin={setUser}/>
       <Routes>
-          <Route path='/' element={<HomePage />} />
+          <Route path='/' element={<HomePage user={user} />} />
           <Route path="/anilist" element={<AniListPage user={user} />} />
           <Route path='/animeform' element={<AnimeForm user={user} />} />
       </Routes>

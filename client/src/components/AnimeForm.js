@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 
 function AnimeForm({ user }) {
-    const [animes, setAnimes] = useState([]);
+    // const [animes, setAnimes] = useState([]);
     const [formData, setFormData] = useState({
         name: "",
         episode_count:"",
@@ -16,7 +16,7 @@ function AnimeForm({ user }) {
           [e.target.name]: e.target.value
         }); 
     };
-
+    // add an anime post request
     // const handleSubmit = (e) => {
     //     e.preventDefault();
     //     fetch("/user_animes", {
@@ -42,6 +42,7 @@ function AnimeForm({ user }) {
     // };
 
     return (
+        //form for adding an anime
         <div>
             <form >
                 <label>

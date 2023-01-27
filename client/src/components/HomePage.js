@@ -1,9 +1,13 @@
 import React, {useState, useEffect} from "react";
+import AniListForm from "./AniListForm";
 
 
-function HomePage() {
+function HomePage({ user }) {
     const [animes, setAnimes] = useState([]);
-
+    const [showForm, setShowForm] = useState(false);
+    const [clickedAnime, setClickedAnime] = useState(null);
+    
+    //load anime in db
     useEffect(() => {
         fetch("/animes")
         .then((resp) => {
@@ -13,19 +17,26 @@ function HomePage() {
         })
     }, []);
 
-    const handleAddToAniListClick = (id) => {
-        console.log(id)
+    //button for showing/hiding form and grabbing clickedanime
+    const handleAddToAniListClick = (anime) => {
+        setClickedAnime(anime);
+        setShowForm(!showForm);
     };
 
+    if (showForm) {
+        return <AniListForm user={ user } clickedAnime={ clickedAnime }  />
+    }
+
+    //format for rendering each individual anime 
     const listOfAnimes = animes.map((anime) => {
         return (
-            <div key={anime.id} value={anime.id}>
-                <h3>{anime.name}</h3>
-                <p>Episode Count: {anime.episode_count}</p>
-                <p> Genre: {anime.genre}</p>
-                <img src={anime.image_url} alt={anime.name} width={200} height={200} />
+            <div key={ anime.id } value={ anime.id }>
+                <h3>{ anime.name }</h3>
+                <img src={ anime.image_url } alt={ anime.name } width={ 200 } height={ 200 } />
+                <p>Episode Count: { anime.episode_count }</p>
+                <p>Genre: { anime.genre }</p>
                 <br />
-                <button onClick={() => handleAddToAniListClick(anime.id)}>Add to AniList</button>
+                <button onClick={() => handleAddToAniListClick(anime)}>Review</button>
             </div>
         )
     });
