@@ -1,8 +1,7 @@
 import React from "react";
 
 function AniListPage({ user }) {
-    console.log(user)
-
+    
     const userAnimes = user.user_animes.map((ua) => {
         return(
         <div key={ua.id}>

@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import './App.css';
-import { Routes, Route} from 'react-router-dom';
+import { Routes, Route, useNavigate } from 'react-router-dom';
 import LoginForm from './components/LoginForm';
 import NavBar from './components/NavBar';
 import AnimeForm from './components/AnimeForm';
@@ -18,17 +18,29 @@ function App() {
         resp.json().then((user) => setUser(user))
       }
     })
-  },[])
+  },[]);
+
+  const navigate = useNavigate();
+
+  const addUserAnime = (newUserAnime) => {
+    setUser({
+      ...user,
+      user_animes: [...user.user_animes, newUserAnime]
+    })
+    navigate("/anilist")
+  };
+
   if (!user) {
     return <LoginForm userLogin={setUser} />
   }
+
   return (
     <div className="App">
-      <NavBar userLogin={setUser}/>
+      <NavBar userLogin={ setUser } />
       <Routes>
-          <Route path='/' element={<HomePage user={user} />} />
-          <Route path="/anilist" element={<AniListPage user={user} />} />
-          <Route path='/animeform' element={<AnimeForm user={user} />} />
+          <Route path='/' element={ <HomePage user={ user } addUserAnime={ addUserAnime } /> } />
+          <Route path="/anilist" element={ <AniListPage user={ user } /> } />
+          <Route path='/animeform' element={ <AnimeForm user={ user } /> } />
       </Routes>
     </div>
   );

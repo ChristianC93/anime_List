@@ -2,7 +2,7 @@ import React, {useState, useEffect} from "react";
 import AniListForm from "./AniListForm";
 
 
-function HomePage({ user }) {
+function HomePage({ user, addUserAnime }) {
     const [animes, setAnimes] = useState([]);
     const [showForm, setShowForm] = useState(false);
     const [clickedAnime, setClickedAnime] = useState(null);
@@ -24,7 +24,7 @@ function HomePage({ user }) {
     };
 
     if (showForm) {
-        return <AniListForm user={ user } clickedAnime={ clickedAnime }  />
+        return <AniListForm user={ user } clickedAnime={ clickedAnime } addUserAnime={ addUserAnime }  />
     }
 
     //format for rendering each individual anime 
