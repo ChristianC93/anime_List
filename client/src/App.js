@@ -22,6 +22,7 @@ function App() {
 
   const navigate = useNavigate();
 
+  // to AniListForm component
   const addUserAnime = (newUserAnime) => {
     setUser({
       ...user,
@@ -29,6 +30,14 @@ function App() {
     })
     navigate("/anilist")
   };
+
+  //to AniListPage component
+  const deleteUserAnime = (userAnime) => {
+    setUser({
+      ...user,
+      user_animes: [...user.user_animes].filter((ua) => ua.id !== userAnime.id)
+    })
+  }
 
   if (!user) {
     return <LoginForm userLogin={setUser} />
@@ -39,7 +48,7 @@ function App() {
       <NavBar userLogin={ setUser } />
       <Routes>
           <Route path='/' element={ <HomePage user={ user } addUserAnime={ addUserAnime } /> } />
-          <Route path="/anilist" element={ <AniListPage user={ user } /> } />
+          <Route path="/anilist" element={ <AniListPage user={ user } deleteUserAnime={ deleteUserAnime } /> } />
           <Route path='/animeform' element={ <AnimeForm user={ user } /> } />
       </Routes>
     </div>
