@@ -40,7 +40,7 @@ function LoginForm({ userLogin }) {
     };
 
     return (
-        <div>
+        <div id='loginform'>
             <h1>AniList!</h1>
             {showSignup ? <> <SignUpForm /> <a href="/" onClick={handleClick}>Already have an account?</a> </> :
                 <form onSubmit={handleSubmit}>
