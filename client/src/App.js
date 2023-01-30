@@ -6,6 +6,9 @@ import NavBar from './components/NavBar';
 import AnimeForm from './components/AnimeForm';
 import AniListPage from './components/AniListPage';
 import HomePage from './components/HomePage';
+import UpdateUserAnime from './components/UpdateUserAnime';
+
+
 
 
 function App() {
@@ -39,6 +42,20 @@ function App() {
     })
   }
 
+  const updateUserAnime = (updatedUserAnime) => {
+    setUser({
+      ...user,
+      user_animes: [...user.user_animes].map((ua) => {
+        if (ua.id === updatedUserAnime.id) {
+          return updatedUserAnime
+        }
+        else {
+          return ua
+        }
+      })
+    })
+  }
+
   if (!user) {
     return <LoginForm userLogin={setUser} />
   }
@@ -50,6 +67,7 @@ function App() {
           <Route path='/' element={ <HomePage user={ user } addUserAnime={ addUserAnime } /> } />
           <Route path="/anilist" element={ <AniListPage user={ user } deleteUserAnime={ deleteUserAnime } /> } />
           <Route path='/animeform' element={ <AnimeForm user={ user } /> } />
+          <Route path='/update/:id' element={ <UpdateUserAnime updateFunction={ updateUserAnime } /> } />
       </Routes>
     </div>
   );

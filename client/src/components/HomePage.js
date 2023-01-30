@@ -7,6 +7,7 @@ function HomePage({ user, addUserAnime }) {
     const [showForm, setShowForm] = useState(false);
     const [clickedAnime, setClickedAnime] = useState(null);
     
+    
     //load anime in db
     useEffect(() => {
         fetch("/animes")
@@ -36,7 +37,7 @@ function HomePage({ user, addUserAnime }) {
                 <p>Episode Count: { anime.episode_count }</p>
                 <p>Genre: { anime.genre }</p>
                 <br />
-                <button onClick={() => handleAddToAniListClick(anime)}>Review</button>
+                <button onClick={ () => handleAddToAniListClick(anime) }>Review</button>
             </div>
         )
     });

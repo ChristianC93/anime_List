@@ -19,6 +19,7 @@ function AniListForm({ user, clickedAnime, addUserAnime }) {
         }); 
     };
 
+    //add a user_anime
     const handleSubmit = (e) => {
         e.preventDefault();
         fetch("/user_animes", {
