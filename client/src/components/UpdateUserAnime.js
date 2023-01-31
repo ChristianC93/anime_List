@@ -9,14 +9,18 @@ function UpdateUserAnime({ updateFunction }) {
     let { id } = useParams();
     
 
-    useEffect(async () => {
+    useEffect(() => {
+        const fetchData = async () => {
         let response = await fetch(`/user_animes/${id}`)
         response = await response.json();
         setUserAnime(response);
         setRating(response.rating);
         setReview(response.review);
-    },[])
+    };
+        fetchData();
+    }, [id]);
 
+    //once promise is resolved 
     if (!userAnime.user) {
         return "...loading"
     };
@@ -39,14 +43,13 @@ function UpdateUserAnime({ updateFunction }) {
             headers: {
                 "Content-Type": "application/json"
             },
-            body: JSON.stringify({rating, review})
+            body: JSON.stringify({ rating, review })
         })
         const data = await response.json();
         if (response.ok) {
             updateFunction(data)
         }
         navigate('/anilist')
-
     }
     
     return (

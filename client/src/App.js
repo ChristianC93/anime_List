@@ -15,14 +15,16 @@ function App() {
   const [user, setUser] = useState(null);
 
   useEffect(() => {
-    fetch("/me")
-    .then((resp) => {
+    const fetchData = async () => {
+      const resp = await fetch("/me");
       if (resp.ok) {
-        resp.json().then((user) => setUser(user))
+        const user = await resp.json();
+        setUser(user);
       }
-    })
-  },[]);
-
+    };
+    fetchData();
+  }, []);
+  
   const navigate = useNavigate();
 
   // to AniListForm component
@@ -58,7 +60,7 @@ function App() {
   };
 
   if (!user) {
-    return <LoginForm userLogin={setUser} />
+    return <LoginForm userLogin={ setUser } />
   }
 
   return (
