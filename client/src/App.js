@@ -40,21 +40,22 @@ function App() {
       ...user,
       user_animes: [...user.user_animes].filter((ua) => ua.id !== userAnime.id)
     })
-  }
+  };
 
+  //to Update UserAnimeComponent
   const updateUserAnime = (updatedUserAnime) => {
     setUser({
       ...user,
       user_animes: [...user.user_animes].map((ua) => {
         if (ua.id === updatedUserAnime.id) {
-          return updatedUserAnime
+          return updatedUserAnime;
         }
         else {
-          return ua
+          return ua;
         }
       })
     })
-  }
+  };
 
   if (!user) {
     return <LoginForm userLogin={setUser} />

@@ -20,9 +20,44 @@ nav a:hover {
   color: #333;
 }
 
-#loginform {
+.loginform {
+  
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
+  padding: 20px;
+  border-radius: 5px;
+}
+
+.loginform h2 {
+  text-align: center;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.loginform input {
+  padding: 10px;
+}
+
+.submit {
+  font-size: 16px;
+  font-weight: 500;
+  padding: 10px;
+  background: blue;
+  outline: none;
+  color: white;
+  border: 1px solid blue;
+  transition: all 0.2s ease-in;
+}
+
+.submit:hover {
+  background: transparent;
+  color: blue;
+  cursor: pointer;
 }

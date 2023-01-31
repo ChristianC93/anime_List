@@ -40,10 +40,10 @@ function LoginForm({ userLogin }) {
     };
 
     return (
-        <div id='loginform'>
-            <h1>AniList!</h1>
+        <div className='loginform'>
+            <h2>AniList!</h2>
             {showSignup ? <> <SignUpForm /> <a href="/" onClick={handleClick}>Already have an account?</a> </> :
-                <form onSubmit={handleSubmit}>
+                <form className='form' onSubmit={handleSubmit}>
                     <label>
                         Username:
                         <input
@@ -60,8 +60,8 @@ function LoginForm({ userLogin }) {
                         />
                     </label>
                     <br />
-                    <input type="submit" value="Log In" />
-                    <a href="/signup" onClick={handleClick}>Don't have an account?</a>
+                    <input className='submit' type="submit" value="Log In" />
+                    <p>Don't have an account?</p> <a href="/signup" onClick={handleClick}>Sign Up</a>
                 </form>
             }
             {errors.length > 0 ? errors.map((err) => <p key={err}>{err}</p>) : ""}
