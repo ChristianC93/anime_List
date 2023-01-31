@@ -20,7 +20,7 @@ nav a:hover {
   color: #333;
 }
 
-.loginform {
+.form {
   
   display: flex;
   flex-direction: column;
@@ -30,7 +30,7 @@ nav a:hover {
   border-radius: 5px;
 }
 
-.loginform h2 {
+.form h2 {
   text-align: center;
 }
 
@@ -41,7 +41,7 @@ nav a:hover {
   margin-top: 10px;
 }
 
-.loginform input {
+.form input {
   padding: 10px;
 }
 

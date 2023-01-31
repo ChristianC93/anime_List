@@ -4,4 +4,5 @@ class Anime < ApplicationRecord
 
     validates :name, :episode_count, :genre, presence: true
     validates :episode_count, numericality: { only_integer: true }
+    validates :name, uniqueness: true
 end
