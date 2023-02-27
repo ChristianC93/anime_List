@@ -25,6 +25,12 @@ class AnimesController < ApplicationController
         render json: {}, status: :no_content
     end
 
+    #return all animes that have equal to or more than a given number of reviews
+    def reviewed_animes
+        rev_animes = Anime.all.select {|anime| anime.user_animes.size >= params[:number].to_i}
+        render json: rev_animes
+    end
+
     private
 
     def anime_params

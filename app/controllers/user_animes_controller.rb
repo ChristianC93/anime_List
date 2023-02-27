@@ -35,6 +35,6 @@ class UserAnimesController < ApplicationController
     private
 
     def user_anime_params
-        params.permit(:rating, :review, :anime_id, :user_id)
+        params.permit(:rating, :review, :anime_id)
     end
 end

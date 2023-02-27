@@ -5,7 +5,7 @@ function AniListForm({ user, clickedAnime, addUserAnime }) {
     
     const [formData, setFormData] = useState({
         anime_id: clickedAnime.id,
-        user_id: user.id,
+        // user_id: user.id,
         rating: "",
         review: ""
     });

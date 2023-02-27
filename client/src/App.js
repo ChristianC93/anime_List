@@ -69,7 +69,7 @@ function App() {
       <Routes>
           <Route path='/' element={ <HomePage user={ user } addUserAnime={ addUserAnime } /> } />
           <Route path="/anilist" element={ <AniListPage user={ user } deleteUserAnime={ deleteUserAnime } /> } />
-          <Route path='/animeform' element={ <AnimeForm user={ user } /> } />
+          <Route path='/anime/new' element={ <AnimeForm user={ user } /> } />
           <Route path='/update/:id' element={ <UpdateUserAnime updateFunction={ updateUserAnime } /> } />
       </Routes>
     </div>

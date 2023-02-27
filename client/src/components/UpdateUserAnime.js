@@ -54,7 +54,7 @@ function UpdateUserAnime({ updateFunction }) {
     
     return (
         <div>
-            <h2>Review for {userAnime.anime_name}</h2>
+            <h2>Review for { userAnime.anime_name }</h2>
             <form onSubmit={ handleSubmit }>
                 <input type="hidden" defaultValue={ userAnime.id } name="anime_id" />
                 <input type="hidden" defaultValue={ userAnime.user.id }  name="user_id" />

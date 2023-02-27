@@ -14,8 +14,8 @@ function AniListPage({ user, deleteUserAnime }) {
 
     const userAnimes = user.user_animes.map((ua) => {
         return(
-        <div key={ ua.id }>
-            <h3>{ ua.anime_name }</h3>
+        <div key={ ua.anime.id }>
+            <h3>{ ua.anime.name }</h3>
             <p>My Rating: { ua.rating }/10</p>
             <p>Review: { ua.review }</p>
             <Link to={`/update/${ua.id}`}><button>Edit</button></Link>  <button onClick={ () => handleDeleteButton(ua) }>Delete</button>

@@ -42,12 +42,12 @@ function LoginForm({ userLogin }) {
     return (
         <div className='form'>
             <h2>AniList!</h2>
-            {showSignup ? <> <SignUpForm /> <a href="/" onClick={handleClick}>Already have an account?</a> </> :
-                <form className='form' onSubmit={handleSubmit}>
+            {showSignup ? <> <SignUpForm /> <a href="/" onClick={ handleClick }>Already have an account?</a> </> :
+                <form className='form' onSubmit={ handleSubmit }>
                     <label>
                         Username:
                         <input
-                            type="username" name="username" onChange={handleChange} value={formData.username}
+                            type="username" name="username" onChange={ handleChange } value={formData.username}
                             required
                         />
                     </label>
@@ -55,16 +55,16 @@ function LoginForm({ userLogin }) {
                     <label>
                         Password:
                         <input
-                            type="password" name="password" onChange={handleChange} value={formData.password}
+                            type="password" name="password" onChange={ handleChange } value={formData.password}
                             required
                         />
                     </label>
                     <br />
                     <input className='submit' type="submit" value="Log In" />
-                    <p>Don't have an account?</p> <a href="/signup" onClick={handleClick}>Sign Up</a>
+                    <p>Don't have an account?</p> <a href="/signup" onClick={ handleClick }>Sign Up</a>
                 </form>
             }
-            {errors.length > 0 ? errors.map((err) => <p key={err}>{err}</p>) : ""}
+            {errors.length > 0 ? errors.map((err) => <p key={err}>{err}</p>) : []}
         </div>
     );
 };

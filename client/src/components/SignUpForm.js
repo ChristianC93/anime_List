@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 function SignUpForm() {
   const [formData, setFormData] = useState({
@@ -7,6 +8,9 @@ function SignUpForm() {
     password_confirmation: "",
     image_url: ""
   });
+  const [errors, setErrors] = useState([]) 
+
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     setFormData({
@@ -30,35 +34,40 @@ function SignUpForm() {
             resp.json().then((user) => console.log(user))
         }
         else {
-            resp.json().then((error) => console.log(error))
+            resp.json().then((error) => setErrors(error.errors))
         }
-    })}
+    })
+    navigate('/login')
+  }
 
 
   return (
-    <form onSubmit={handleSubmit}>
-      <label>
-        Username:
-        <input type="username" name="username" onChange={handleChange} value={formData.username} />
-      </label>
-      <br />
-      <label>
-        Password:
-        <input type="password" name="password" onChange={handleChange} value={formData.password} />
-      </label>
-      <br />
-      <label>
-        Confirm Password:
-        <input type="password" name="password_confirmation" onChange={handleChange} value={formData.passwordConfirmation} />
-      </label>
-      <br />
-      <label>
-        Image Url:
-        <input type="text" name="image_url" onChange={handleChange} value={formData.image_url} />
-      </label>
-      <br />
-      <input type="submit" value="Sign Up" />
-    </form>
+    <div>
+      <form onSubmit={handleSubmit}>
+        <label>
+          Username:
+          <input type="username" name="username" onChange={handleChange} value={formData.username} />
+        </label>
+        <br />
+        <label>
+          Password:
+          <input type="password" name="password" onChange={handleChange} value={formData.password} />
+        </label>
+        <br />
+        <label>
+          Confirm Password:
+          <input type="password" name="password_confirmation" onChange={handleChange} value={formData.passwordConfirmation} />
+        </label>
+        <br />
+        <label>
+          Image Url:
+          <input type="text" name="image_url" onChange={handleChange} value={formData.image_url} />
+        </label>
+        <br />
+        <input type="submit" value="Sign Up" />
+      </form>
+      {errors.length > 0 ? errors.map((error) => <p key={error}>{error}</p>) : []}
+    </div>
   );
 }
 
