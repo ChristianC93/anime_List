@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 
 function AnimeForm({ user, addNewAnime }) {
-    // const [animes, setAnimes] = useState([]);
+    const [errors, setErrors] = useState([]);
     const [formData, setFormData] = useState({
         name: "",
         episode_count:"",
@@ -31,7 +31,7 @@ function AnimeForm({ user, addNewAnime }) {
             addNewAnime(anime);
         } else {
             const error = await resp.json();
-            console.log(error.errors)
+            setErrors(error.errors)
         }
         setFormData({
             name:"",
@@ -67,6 +67,7 @@ function AnimeForm({ user, addNewAnime }) {
                 <br />
                 <input className="submit" type="submit" value="Submit Anime" />
             </form>
+            {errors.length > 0 ? errors.map((err) => <p key={err}>{err}</p>) : []}
         </div>
     )
 };
