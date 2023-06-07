@@ -5,7 +5,6 @@ function AniListForm({ user, clickedAnime, addUserAnime }) {
     
     const [formData, setFormData] = useState({
         anime_id: clickedAnime.id,
-        // user_id: user.id,
         rating: "",
         review: ""
     });
@@ -36,7 +35,7 @@ function AniListForm({ user, clickedAnime, addUserAnime }) {
                 resp.json().then((error) => console.log(error))
             }
         })
-        .then(navigate("/"))
+        .then(navigate("/home"))
     }
 
     return (
@@ -44,7 +43,6 @@ function AniListForm({ user, clickedAnime, addUserAnime }) {
             <h2>Review for { clickedAnime.name }</h2>
             <form onSubmit={ handleSubmit }>
                 <input type="hidden" value={ clickedAnime.id } name="anime_id" />
-                <input type="hidden" value={ user.id } name="user_id" />
                 <label>
                     Rating:
                     <select name="rating" value={ formData.rating } onChange={ handleChange }>

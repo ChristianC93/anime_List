@@ -21,6 +21,7 @@ function AniListPage({ user, deleteUserAnime }) {
             <Link to={`/update/${ua.id}`}><button>Edit</button></Link>  <button onClick={ () => handleDeleteButton(ua) }>Delete</button>
         </div>
     )});
+    console.log(userAnimes)
 
     return (
         <div>

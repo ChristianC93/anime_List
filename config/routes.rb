@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get "/reviewed_animes/:number", to: "animes#reviewed_animes"
+  get "/mostreviews", to: "users#mostuas"
   resources :user_animes
   resources :animes 
   # only: [:index, :create]

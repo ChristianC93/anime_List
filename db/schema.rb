@@ -37,5 +37,4 @@ ActiveRecord::Schema.define(version: 2023_01_17_150953) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "image_url"
   end
-
 end

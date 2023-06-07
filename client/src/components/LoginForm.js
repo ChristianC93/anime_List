@@ -35,7 +35,7 @@ function LoginForm({ userLogin }) {
     };
 
     const handleClick = (e) => {
-       e.preventDefault()
+        e.preventDefault()
         setShowSignup(!showSignup)
     };
 

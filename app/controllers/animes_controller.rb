@@ -9,7 +9,7 @@ class AnimesController < ApplicationController
     #GET one anime anime/:id
     def show
         anime = Anime.find_by!(id: params[:id])
-        render json: anime, status: 200  
+        render json: anime, status: :ok 
     end
 
     #POST anime (create)

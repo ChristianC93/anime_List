@@ -7,6 +7,7 @@ import AnimeForm from './components/AnimeForm';
 import AniListPage from './components/AniListPage';
 import HomePage from './components/HomePage';
 import UpdateUserAnime from './components/UpdateUserAnime';
+import stockAnimeImage from './assets/stock_anime_photo.avif'
 
 
 
@@ -67,7 +68,7 @@ function App() {
     <div className="App">
       <NavBar userLogin={ setUser } />
       <Routes>
-          <Route path='/login' element={ <HomePage user={ user } addUserAnime={ addUserAnime } /> } />
+          <Route path='/home' element={ <HomePage user={ user } addUserAnime={ addUserAnime } /> } />
           <Route path="/anilist" element={ <AniListPage user={ user } deleteUserAnime={ deleteUserAnime } /> } />
           <Route path='/anime/new' element={ <AnimeForm user={ user } /> } />
           <Route path='/update/:id' element={ <UpdateUserAnime updateFunction={ updateUserAnime } /> } />
