@@ -61,3 +61,18 @@ nav a:hover {
   color: blue;
   cursor: pointer;
 }
+
+.hero {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: -1;
+}
+
+.hero img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}

@@ -61,19 +61,26 @@ function App() {
   };
 
   if (!user) {
-    return <LoginForm userLogin={ setUser } />
+    return (
+      <div className='container'>
+         <div className='hero'>
+          <img src={ stockAnimeImage } alt='animeImage' />
+        </div>
+        <LoginForm userLogin={ setUser } />
+      </div>
+    ) 
   }
 
   return (
     <div className="App">
-      <NavBar userLogin={ setUser } />
-      <Routes>
-          <Route path='/home' element={ <HomePage user={ user } addUserAnime={ addUserAnime } /> } />
-          <Route path="/anilist" element={ <AniListPage user={ user } deleteUserAnime={ deleteUserAnime } /> } />
-          <Route path='/anime/new' element={ <AnimeForm user={ user } /> } />
-          <Route path='/update/:id' element={ <UpdateUserAnime updateFunction={ updateUserAnime } /> } />
-      </Routes>
-    </div>
+        <NavBar userLogin={ setUser } />
+        <Routes>
+            <Route path='/home' element={ <HomePage user={ user } addUserAnime={ addUserAnime } /> } />
+            <Route path="/anilist" element={ <AniListPage user={ user } deleteUserAnime={ deleteUserAnime } /> } />
+            <Route path='/anime/new' element={ <AnimeForm user={ user } /> } />
+            <Route path='/update/:id' element={ <UpdateUserAnime updateFunction={ updateUserAnime } /> } />
+        </Routes>
+      </div>
   );
 }
 
